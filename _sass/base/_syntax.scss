@@ -242,10 +242,10 @@ div {
     }
 
     &:not([timeout]):hover {
-      background-color: rgb(128 128 128 / 37%);
+      background-color: var(--ctp-surface0);
 
       i {
-        color: white;
+        color: var(--ctp-text);
       }
     }
   }
