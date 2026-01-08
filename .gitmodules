@@ -3,3 +3,4 @@
 	url = https://github.com/cotes2020/chirpy-static-assets.git
 [submodule "_plugins/multiple-languages"]
 	path = _plugins/multiple-languages
+	url = https://github.com/kurtsson/jekyll-multiple-languages-plugin.git
