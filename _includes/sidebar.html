@@ -2,7 +2,7 @@
 
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
   <header class="profile-wrapper">
-    <a href="{{ '/' | relative_url }}" id="avatar" class="rounded-circle">
+    <a href="{{ site.baseurl }}/" id="avatar" class="rounded-circle">
       {%- if site.avatar != empty and site.avatar -%}
         {%- capture avatar_url -%}
           {% include media-url.html src=site.avatar %}
@@ -11,7 +11,7 @@
       {%- endif -%}
     </a>
 
-    <a class="site-title d-block" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <a class="site-title d-block" href="{{ site.baseurl }}/">{{ site.title }}</a>
     <p class="site-subtitle fst-italic mb-0">{{ site.tagline }}</p>
   </header>
   <!-- .profile-wrapper -->
@@ -20,7 +20,7 @@
     <ul class="nav">
       <!-- home -->
       <li class="nav-item{% if page.layout == 'home' %}{{ " active" }}{% endif %}">
-        <a href="{{ '/' | relative_url }}" class="nav-link">
+        <a href="{{ site.baseurl }}/" class="nav-link">
           <i class="fa-fw fas fa-home"></i>
           <span>{{ site.data.locales[include.lang].tabs.home | upcase }}</span>
         </a>
@@ -28,7 +28,7 @@
       <!-- the real tabs -->
       {% for tab in site.tabs %}
         <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
-          <a href="{{ tab.url | relative_url }}" class="nav-link">
+          <a href="{{ site.baseurl }}{{ tab.url }}" class="nav-link">
             <i class="fa-fw {{ tab.icon }}"></i>
             {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
 
@@ -41,6 +41,31 @@
   </nav>
 
   <div class="sidebar-bottom d-flex flex-wrap  align-items-center w-100">
+    <!-- Language Switcher -->
+    {% if site.lang == 'fr-FR' %}
+      <a
+        href="{{ site.baseurl_root }}/en{{ page.url }}"
+        class="btn btn-link nav-link"
+        aria-label="Switch to English"
+        title="English"
+      >
+        <i class="fas fa-language"></i>
+      </a>
+    {% elsif site.lang == 'en' %}
+      <a
+        href="{{ site.baseurl_root }}{{ page.url }}"
+        class="btn btn-link nav-link"
+        aria-label="Passer au français"
+        title="Français"
+      >
+        <i class="fas fa-language"></i>
+      </a>
+    {% endif %}
+
+    {% if site.data.contact.size > 0 or site.theme_mode == null %}
+      <span class="icon-border"></span>
+    {% endif %}
+
     {% unless site.theme_mode %}
       <button type="button" class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">
         <i class="fas fa-adjust"></i>

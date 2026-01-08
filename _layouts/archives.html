@@ -2,7 +2,6 @@
 layout: page
 # The Archives of posts.
 ---
-
 {% include lang.html %}
 
 {% assign df_strftime_m = site.data.locales[lang].df.archives.strftime | default: '/ %m' %}
@@ -27,7 +26,7 @@ layout: page
       <span class="date month small text-muted ms-1" data-ts="{{ ts }}" data-df="{{ df_dayjs_m }}">
         {{ post.date | date: df_strftime_m }}
       </span>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
     </li>
 
     {% if forloop.last %}</ul>{% endif %}

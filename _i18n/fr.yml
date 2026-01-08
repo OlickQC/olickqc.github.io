@@ -1,0 +1,23 @@
+global:
+  french: Français
+  english: English
+
+site:
+  title: "Labo d'Oli 🧪"
+  tagline: "Salut 👋 Je suis Olivier. Je suis administrateur Windows Server de profession, avec un fort intérêt pour le développement et l'automatisation."
+  description: "Le Labo d'Oli est un portfolio personnel et un blog technologique. Découvrez des idées pratiques et mes explorations."
+
+pages:
+  home: Accueil
+  about: À propos
+  archives: Archives
+  categories: Catégories
+  tags: Étiquettes
+
+navigation:
+  recent_posts: Articles récents
+  trending_tags: Étiquettes populaires
+
+footer:
+  follow_me: "Suivez-moi"
+  copyright: "Tous droits réservés"

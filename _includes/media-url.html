@@ -25,10 +25,29 @@
     {% assign url = url | replace: '///', '/' | replace: '//', '/' | replace: ':/', '://' %}
 
     {% unless url contains '://' %}
+      {%- comment -%} Check if URL starts with excluded paths (for multilanguage plugin) {%- endcomment -%}
+      {% assign use_root = false %}
+      {% if url contains '/assets/'
+        or url contains '/javascript/'
+        or url contains '/images/'
+        or url contains '/css/'
+        or url contains '/js/'
+      %}
+        {% assign use_root = true %}
+      {% endif %}
+
       {% if include.absolute %}
-        {% assign url = site.url | append: site.baseurl | append: url %}
+        {% if use_root and site.baseurl_root %}
+          {% assign url = site.url | append: site.baseurl_root | append: url %}
+        {% else %}
+          {% assign url = site.url | append: site.baseurl | append: url %}
+        {% endif %}
       {% else %}
-        {% assign url = site.baseurl | append: url %}
+        {% if use_root and site.baseurl_root %}
+          {% assign url = site.baseurl_root | append: url %}
+        {% else %}
+          {% assign url = site.baseurl | append: url %}
+        {% endif %}
       {% endif %}
     {% endunless %}
   {% endunless %}

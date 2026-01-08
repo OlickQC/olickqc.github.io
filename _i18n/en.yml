@@ -1,0 +1,25 @@
+global:
+  french: Français
+  english: English
+
+site:
+  title: "Oli's Labo 🧪"
+  tagline: "Hey there 👋 I'm Olivier. I'm a Windows Server Administrator by profession, with a strong interest in development and automation."
+  description: "Oli's Labo is a personal portfolio and tech blog. Discover practical insights and hands-on explorations of modern technology."
+  author: "Olivier B."
+  meta: "Made with ❤️ using :PLATFORM with :THEME theme"
+
+pages:
+  home: Home
+  about: About
+  archives: Archives
+  categories: Categories
+  tags: Tags
+
+navigation:
+  recent_posts: Recent Posts
+  trending_tags: Trending Tags
+
+footer:
+  follow_me: "Follow me"
+  copyright: "All rights reserved"
